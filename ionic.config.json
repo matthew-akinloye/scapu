@@ -1,0 +1,7 @@
+{
+  "name": "Scapu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
