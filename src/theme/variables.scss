@@ -1,2 +1,113 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+/* Dark Mode Colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-scapuyelow: #f0f400;
+    --ion-color-scapuyelow-rgb: 240, 244, 0;
+    --ion-color-scapuyelow-contrast: #000000;
+    --ion-color-scapuyelow-contrast-rgb: 0, 0, 0;
+    --ion-color-scapuyelow-shade: #d3d700;
+    --ion-color-scapuyelow-tint: #f2f51a;
+  }
+
+  .ion-color-scapuyelow {
+    --ion-color-base: var(--ion-color-scapuyelow);
+    --ion-color-base-rgb: var(--ion-color-scapuyelow-rgb);
+    --ion-color-contrast: var(--ion-color-scapuyelow-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-scapuyelow-contrast-rgb);
+    --ion-color-shade: var(--ion-color-scapuyelow-shade);
+    --ion-color-tint: var(--ion-color-scapuyelow-tint);
+  }
+
+  :root {
+    --ion-color-wab: #ffffff;
+    --ion-color-wab-rgb: 255, 255, 255;
+    --ion-color-wab-contrast: #000000;
+    --ion-color-wab-contrast-rgb: 0, 0, 0;
+    --ion-color-wab-shade: #e0e0e0;
+    --ion-color-wab-tint: #ffffff;
+  }
+
+  .ion-color-wab {
+    --ion-color-base: var(--ion-color-wab);
+    --ion-color-base-rgb: var(--ion-color-wab-rgb);
+    --ion-color-contrast: var(--ion-color-wab-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-wab-contrast-rgb);
+    --ion-color-shade: var(--ion-color-wab-shade);
+    --ion-color-tint: var(--ion-color-wab-tint);
+  }
+
+  :root {
+	--ion-color-usertext: #7CA6AE;
+	--ion-color-usertext-rgb: 124,166,174;
+	--ion-color-usertext-contrast: #000000;
+	--ion-color-usertext-contrast-rgb: 0,0,0;
+	--ion-color-usertext-shade: #6d9299;
+	--ion-color-usertext-tint: #89afb6;
+}
+
+.ion-color-usertext {
+	--ion-color-base: var(--ion-color-usertext);
+	--ion-color-base-rgb: var(--ion-color-usertext-rgb);
+	--ion-color-contrast: var(--ion-color-usertext-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-usertext-contrast-rgb);
+	--ion-color-shade: var(--ion-color-usertext-shade);
+	--ion-color-tint: var(--ion-color-usertext-tint);
+}
+}
+
+/* Light Mode Colors */
+@media (prefers-color-scheme: light) {
+  :root {
+    --ion-color-scapuyelow: #cb9340;
+    --ion-color-scapuyelow-rgb: 203, 147, 64;
+    --ion-color-scapuyelow-contrast: #000000;
+    --ion-color-scapuyelow-contrast-rgb: 0, 0, 0;
+    --ion-color-scapuyelow-shade: #b38138;
+    --ion-color-scapuyelow-tint: #d09e53;
+  }
+
+  .ion-color-scapuyelow {
+    --ion-color-base: var(--ion-color-scapuyelow);
+    --ion-color-base-rgb: var(--ion-color-scapuyelow-rgb);
+    --ion-color-contrast: var(--ion-color-scapuyelow-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-scapuyelow-contrast-rgb);
+    --ion-color-shade: var(--ion-color-scapuyelow-shade);
+    --ion-color-tint: var(--ion-color-scapuyelow-tint);
+  }
+
+  :root {
+    --ion-color-wab: #000000;
+    --ion-color-wab-rgb: 0, 0, 0;
+    --ion-color-wab-contrast: #ffffff;
+    --ion-color-wab-contrast-rgb: 255, 255, 255;
+    --ion-color-wab-shade: #000000;
+    --ion-color-wab-tint: #1a1a1a;
+  }
+
+  .ion-color-wab {
+    --ion-color-base: var(--ion-color-wab);
+    --ion-color-base-rgb: var(--ion-color-wab-rgb);
+    --ion-color-contrast: var(--ion-color-wab-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-wab-contrast-rgb);
+    --ion-color-shade: var(--ion-color-wab-shade);
+    --ion-color-tint: var(--ion-color-wab-tint);
+  }
+
+  :root {
+    --ion-color-usertext: #069494;
+    --ion-color-usertext-rgb: 6, 148, 148;
+    --ion-color-usertext-contrast: #000000;
+    --ion-color-usertext-contrast-rgb: 0, 0, 0;
+    --ion-color-usertext-shade: #058282;
+    --ion-color-usertext-tint: #1f9f9f;
+  }
+
+  .ion-color-usertext {
+    --ion-color-base: var(--ion-color-usertext);
+    --ion-color-base-rgb: var(--ion-color-usertext-rgb);
+    --ion-color-contrast: var(--ion-color-usertext-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-usertext-contrast-rgb);
+    --ion-color-shade: var(--ion-color-usertext-shade);
+    --ion-color-tint: var(--ion-color-usertext-tint);
+  }
+}

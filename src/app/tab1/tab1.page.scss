@@ -1,0 +1,17 @@
+.ctext-xs {
+  font-size: x-small;
+}
+
+.dm {
+  content: url("../../assets/icon/dm.png");
+}
+
+.inner-circle {
+  content: url("../../assets/icon/innercirclelight.png");
+}
+
+@media (prefers-color-scheme: dark) {
+  .inner-circle {
+    content: url("../../assets/icon/innercircledark.png");
+  }
+}

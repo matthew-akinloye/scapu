@@ -1,17 +1,92 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+<ion-header class="ion-no-border" translucent="false">
+  <ion-toolbar class="flex justify-between items-center">
+
+    <!-- Left Side: Menu Button -->
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <!-- <div class="avatar">
+          <div class="ring-primary ring-offset-base-100 w-12 h-12 rounded-full ring ring-offset-2">
+            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          </div>
+        </div> -->
+      </ion-menu-button>
+    </ion-buttons>
+
+    <!-- Center: Title -->
+    <ion-title class="text-xl font-semibold flex-grow text-center">SCAPU</ion-title>
+
+    <!-- Right Side: Search & Notifications -->
+    <ion-buttons slot="end">
+      <ion-button fill="clear" size="large" class="text-xl">
+          <img class="inner-circle w-6 h-6">
+        <!-- <ion-icon slot="icon-only" name="heart-circle-outline" size="large"></ion-icon> -->
+      </ion-button>
+
+      <ion-button fill="clear" size="large" class="text-xl relative">
+        <ion-icon slot="icon-only" name="mail-outline" size="large"></ion-icon>
+        <!-- <img class="dm w-6 h-6"> -->
+        <!-- <ion-icon slot="icon-only" name="chatbubbles-outline" size="large"></ion-icon> -->
+        <ion-badge color="danger" class="absolute top-0 right-0 ctext-xs">
+          1
+        </ion-badge>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true" class="ion-padding" >
+  <ion-toolbar color="black">
+    <div class="">
+      <div class="flex overflow-x-auto no-scrollbar space-x-4 pb-4">
+        <div class="flex-shrink-0 flex flex-col items-center mt-4 mx-4 relative">
+          <div class="avatar mb-2">
+            <div class="w-12 h-12 rounded-full ring-2 ring-primary ring-offset-2 relative">
+              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User" />
+            </div>
+            <div
+              class="absolute bottom-0 right-0 w-6 h-6 flex items-center justify-center bg-white rounded-full border-2 border-primary -mb-1 -mr-1">
+              <ion-icon name="add" class="text-primary text-xl"></ion-icon>
+            </div>
+          </div>
+          <div class="w-18 text-center text-sm font-bold truncate">
+            <p>Add A Story</p>
+          </div>
+        </div>
+
+        <div *ngFor="let story of stories; let i = index" class="flex-shrink-0 flex flex-col items-center mt-4 mx-4">
+          <div class="avatar mb-2">
+            <div class="w-12 h-12 rounded-full ring-2 ring-primary ring-offset-2">
+              <img src="https://i.pravatar.cc/150?img={{ i + 1 }}"
+                alt="User {{ i + 1 }}" />
+            </div>
+          </div>
+          <div class="w-12 text-center text-sm truncate">
+            <p>User {{ i + 1 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="randomizedPosts.length > 0">
+    <ng-container *ngFor="let post of randomizedPosts; let i = index">
+      <app-media-post *ngIf="post === 'media'" [imgid]="i + 30" class="py-4"></app-media-post>
+      <app-text-post *ngIf="post === 'text'" class="py-4"></app-text-post>
+    </ng-container>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end"
+    [ngStyle]="{ 'opacity': fabOpacity, 'transition': 'opacity 0.3s ease-in-out' }">
+    <ion-fab-button color="scapuyelow">
+      <ion-icon name="add-outline" class="text-2xl font-bold"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

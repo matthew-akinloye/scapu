@@ -1,0 +1,71 @@
+<div class="p-4 rounded-lg">
+  <!-- Header: User Profile Picture, Name, Username, Connect Button -->
+  <div class="flex items-center mb-4">
+    <!-- Profile Image -->
+    <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+      <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User"
+        class="w-full h-full object-cover">
+    </div>
+    <!-- User Name and Username -->
+    <div class="flex-grow text-sm font-semibold ">
+      <p>John Doe</p>
+      <p class="text-xs text-gray-500">&#64;johndoe</p>
+    </div>
+    <!-- Connect Button -->
+    <ion-button size="small" color="wab">Connect</ion-button>
+  </div>
+
+  <!-- post -->
+  <div class="text-sm ">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+      nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+  </div>
+
+  <!-- Interactions (Like, Comment, Cheers, Repost, Share) -->
+  <div class="flex items-center justify-between my-2">
+    <!-- Like -->
+    <div class="flex items-center space-x-2">
+      <ion-icon [name]="liked ? 'heart' : 'heart-outline'" size="small" [class.text-red-500]="liked"
+        [class.scale-110]="liked" [class.bounce]="liked" class="text-red-600 like-icon transition-transform"
+        (click)="toggleLike()">
+      </ion-icon>
+      <p class="text-sm text-gray-600">{{ likeCount }}</p>
+    </div>
+    <!-- Comment -->
+    <div class="flex items-center space-x-2">
+      <ion-icon name="chatbubble-outline" size="small" [class.text-blue-500]="commented" [class.scale-110]="commented"
+        class="text-gray-600 comment-icon transition-transform" (click)="toggleComment()">
+      </ion-icon>
+      <p class="text-sm text-gray-600">{{ commentCount }}</p>
+    </div>
+    <!-- Cheers -->
+    <div class="flex items-center space-x-2">
+      <ion-icon name="beer-outline" size="small" [class.text-yellow-500]="cheersed" [class.scale-110]="cheersed"
+        class="text-gray-600 cheers-icon transition-transform" (click)="toggleCheers()">
+      </ion-icon>
+      <p class="text-sm text-gray-600">{{ cheersCount }}</p>
+    </div>
+    <!-- Repost -->
+    <div class="flex items-center space-x-2">
+      <ion-icon name="repeat-outline" size="small" [class.text-green-500]="reposted" [class.scale-110]="reposted"
+        class="text-gray-600 repost-icon transition-transform" (click)="toggleRepost()">
+      </ion-icon>
+      <p class="text-sm text-gray-600">{{ repostCount }}</p>
+    </div>
+    <!-- Share -->
+    <div class="flex items-center space-x-2">
+      <ion-icon name="share-social-outline" size="small" [class.text-purple-500]="shared" [class.scale-110]="shared"
+        class="text-gray-600 share-icon transition-transform" (click)="toggleShare()">
+      </ion-icon>
+      <p class="text-sm text-gray-600">{{ shareCount }}</p>
+    </div>
+  </div>
+
+  <!-- Timestamp -->
+  <div class="text-xs text-gray-500 mt-2">
+    <p>1 hour ago</p>
+  </div>
+
+
+
+</div>

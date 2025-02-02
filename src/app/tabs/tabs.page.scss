@@ -1,1 +1,70 @@
+ion-tab-bar {
+  background-color: white !important;
+  height: 65px !important;
+  padding-bottom: 8px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
 
+ion-tab-button {
+  --color: black !important;
+  --color-selected: black !important;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.active-icon {
+  display: none;
+}
+
+.tab-selected .active-icon {
+  display: block;
+  transform: scale(1.25);
+}
+
+.tab-selected .inactive-icon {
+  display: none;
+}
+
+ion-tab-button:hover {
+  opacity: 0.7;
+  transform: scale(1.25);
+}
+
+.pill-image {
+  content: url("../../assets/icon/pilllight.png");
+}
+
+ion-tab-button.tab-selected .pill-image {
+  content: url("../../assets/icon/pillselected.png");
+}
+
+ion-fab {
+  ion-fab-button {
+    --background: transparent;
+    margin-bottom: 2vh;
+    ion-icon {
+      font-size: 2rem;
+      // font-size: 4rem;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-tab-button {
+    --color: white !important;
+    --color-selected: white !important;
+  }
+
+  ion-tab-bar {
+    background-color: #000 !important;
+    --background: #000 !important;
+    color: white !important;
+  }
+
+  .pill-image {
+    content: url("../../assets/icon/pilldark.png");
+  }
+
+  ion-tab-button.tab-selected .pill-image {
+    content: url("../../assets/icon/pillselected.png");
+  }
+}
