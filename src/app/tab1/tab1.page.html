@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border" translucent="false">
-  <ion-toolbar class="flex justify-between items-center">
+  <ion-toolbar mode="ios">
 
     <!-- Left Side: Menu Button -->
     <ion-buttons slot="start">
@@ -18,12 +18,12 @@
     <!-- Right Side: Search & Notifications -->
     <ion-buttons slot="end">
       <ion-button fill="clear" size="large" class="text-xl">
-          <img class="inner-circle w-6 h-6">
+        <img class="inner-circle w-6 h-6">
         <!-- <ion-icon slot="icon-only" name="heart-circle-outline" size="large"></ion-icon> -->
       </ion-button>
 
       <ion-button fill="clear" size="large" class="text-xl relative">
-        <ion-icon slot="icon-only" name="mail-outline" size="large"></ion-icon>
+        <ion-icon slot="icon-only" name="mail-outline" color="wab" size="large"></ion-icon>
         <!-- <img class="dm w-6 h-6"> -->
         <!-- <ion-icon slot="icon-only" name="chatbubbles-outline" size="large"></ion-icon> -->
         <ion-badge color="danger" class="absolute top-0 right-0 ctext-xs">
@@ -37,7 +37,7 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true" class="ion-padding" >
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-toolbar color="black">
     <div class="">
       <div class="flex overflow-x-auto no-scrollbar space-x-4 pb-4">
@@ -59,8 +59,7 @@
         <div *ngFor="let story of stories; let i = index" class="flex-shrink-0 flex flex-col items-center mt-4 mx-4">
           <div class="avatar mb-2">
             <div class="w-12 h-12 rounded-full ring-2 ring-primary ring-offset-2">
-              <img src="https://i.pravatar.cc/150?img={{ i + 1 }}"
-                alt="User {{ i + 1 }}" />
+              <img src="https://i.pravatar.cc/150?img={{ i + 1 }}" alt="User {{ i + 1 }}" />
             </div>
           </div>
           <div class="w-12 text-center text-sm truncate">

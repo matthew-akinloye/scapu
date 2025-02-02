@@ -1,0 +1,30 @@
+
+.image-container {
+  padding: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.explore-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.explore-image:hover {
+  transform: scale(1.05);
+}
+
+ion-searchbar {
+  --border-radius: 15px;
+}
+
+ion-col {
+  padding: 0 10px;
+}
+
+ion-row {
+  margin: 0;
+}
+

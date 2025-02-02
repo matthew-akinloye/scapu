@@ -1,0 +1,33 @@
+<ion-header [translucent]="true" class="ion-padding ion-no-border">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title class="text-xl font-semibold text-center">
+      Notifications
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let notification of notifications">
+      <!-- Avatar on the left -->
+      <ion-avatar slot="start">
+        <img [src]="notification.avatar" alt="Avatar">
+      </ion-avatar>
+
+      <!-- Notification Content -->
+      <ion-label>
+        <h3>{{ notification.title }}</h3>
+        <p>{{ notification.message }}</p>
+        <small>{{ notification.time }}</small>
+      </ion-label>
+
+      <!-- Icon on the right -->
+      <ion-icon [name]="notification.icon" slot="end" color="wab"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
