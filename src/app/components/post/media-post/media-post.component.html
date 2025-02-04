@@ -12,13 +12,12 @@
       <p class="text-xs text-gray-500">&#64;johndoe</p>
     </div>
     <!-- Connect Button -->
-    <ion-button size="small" color="wab">Connect</ion-button>
+    <ion-button size="small" color="wab">Add</ion-button>
   </div>
 
   <!-- Post Image -->
   <div class="mb-4" (dblclick)="toggleLike()">
-    <img [src]="'https://picsum.photos/id/' + imgid + '/200'" alt="Post Image"
-      class="w-full rounded-lg">
+    <img [src]="'https://picsum.photos/id/' + imgid + '/200'" alt="Post Image" class="w-full rounded-lg">
   </div>
 
   <!-- Interactions (Like, Comment, Cheers, Repost, Share) -->

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -12,12 +12,14 @@ export class Tab1Page implements OnInit {
 
   stories = Array(10).fill(null);
   fabOpacity: number = 1;
+  isModalOpen = false;
+
   private scrollTimeout: any;
 
   posts: string[] = [];
   randomizedPosts: string[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.generateRandomPosts();
@@ -66,5 +68,72 @@ export class Tab1Page implements OnInit {
       this.fabOpacity = 1;
     }, 500);
   }
+
+  // Open the modal
+  openModal() {
+    this.isModalOpen = true;
+    this.fabOpacity = 0; // Optionally hide the FAB when modal is open
+  }
+
+  // // Close the modal
+  // closeModal() {
+  //   this.isModalOpen = false;
+  //   this.fabOpacity = 1; // Restore FAB opacity
+  // }
+  // Close the modal and wait for animation
+  closeModal(): Promise<void> {
+    return new Promise((resolve) => {
+      this.isModalOpen = false;
+      this.fabOpacity = 1;
+      setTimeout(() => resolve(), 300); // Match animation duration
+    });
+  }
+
+  async selectOption(option: string) {
+    console.log('Selected Option:', option);
+    this.closeModal();
+
+    switch (option) {
+      case 'media':
+        await this.navigateToMediaPostUpload();
+        break;
+      case 'camera':
+        await this.navigateToCameraPostUpload();
+        break;
+      case 'text':
+        await this.navigateToTextPostUpload();
+        break;
+      case 'audio':
+        await this.navigateToAudioPostUpload();
+        break;
+      default:
+        console.log('Unknown option');
+    }
+  }
+
+  // Navigate to Media Post Upload component
+  async navigateToMediaPostUpload() {
+    await this.closeModal(); // Wait for modal to close
+    this.router.navigate(['/mediapostupload']);
+  }
+
+  // Navigate to Camera Post Upload component
+  async navigateToCameraPostUpload() {
+    await this.closeModal(); // Wait for modal to close
+    this.router.navigate(['/camerapostupload']);
+  }
+
+  // Navigate to Text Post Upload component
+  async navigateToTextPostUpload() {
+    await this.closeModal(); // Wait for modal to close
+    this.router.navigate(['/textpostupload']);
+  }
+
+  // Navigate to Audio Post Upload component
+  async navigateToAudioPostUpload() {
+    await this.closeModal(); // Wait for modal to close
+    this.router.navigate(['/audiopostupload']);
+  }
+
 
 }

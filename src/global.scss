@@ -86,6 +86,8 @@
   }
 }
 
+
+
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -137,4 +139,8 @@ ion-list {
 ion-item {
   --background: transparent !important;
   --border-color: transparent !important; 
+}
+
+ion-icon {
+  --ionicon-stroke-width: 46px;
 }

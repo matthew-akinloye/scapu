@@ -15,3 +15,17 @@
     content: url("../../assets/icon/innercircledark.png");
   }
 }
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+}
+
+ion-grid {
+  text-align: center;
+}
+
+ion-col {
+  cursor: pointer;
+  padding: 20px;
+}

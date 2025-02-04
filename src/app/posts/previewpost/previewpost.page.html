@@ -1,0 +1,61 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar>
+    <ion-title>Preview Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="p-4 rounded-lg shadow-lg max-w-md mx-auto">
+
+    <!-- Header: User Profile -->
+    <div class="flex items-center mb-4">
+      <div class="w-10 h-10 rounded-full overflow-hidden mr-3">
+        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User"
+          class="w-full h-full object-cover">
+      </div>
+      <div class="flex-grow text-sm font-semibold">
+        <p>John Doe</p>
+        <p class="text-xs text-gray-500">&#64;johndoe</p>
+      </div>
+      <ion-button size="small" mode="ios" color="wab">Add</ion-button>
+    </div>
+
+    <!-- Post Media -->
+    <div class="mb-4">
+      <img *ngIf="isImage" [src]="media" alt="Post Image" class="w-full rounded-lg">
+      <video *ngIf="!isImage" [src]="media" controls class="w-full rounded-lg"></video>
+    </div>
+
+    <!-- Post Interactions -->
+    <div class="flex items-center justify-between mb-2">
+      <ion-icon name="heart-outline" size="small" class="text-gray-600"></ion-icon>
+      <ion-icon name="chatbubble-outline" size="small" class="text-gray-600"></ion-icon>
+      <ion-icon name="beer-outline" size="small" class="text-gray-600"></ion-icon>
+      <ion-icon name="repeat-outline" size="small" class="text-gray-600"></ion-icon>
+      <ion-icon name="share-social-outline" size="small" class="text-gray-600"></ion-icon>
+    </div>
+
+    <!-- Caption -->
+    <div class="text-sm">
+      <p><span class="font-semibold">John Doe</span> {{ caption }}</p>
+    </div>
+
+    <!-- Location -->
+    <div *ngIf="location" class="text-xs text-gray-500 mt-2">
+      📍 {{ location }}
+    </div>
+
+
+
+  </div>
+</ion-content>
+
+<ion-footer mode="ios">
+  <ion-toolbar>
+    <!-- Post Button -->
+    <div class="px-4">
+      <ion-button mode="ios" color="wab" class="w-full max-w-sm rounded-full py-3"
+        (click)="postContent()">Publish</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

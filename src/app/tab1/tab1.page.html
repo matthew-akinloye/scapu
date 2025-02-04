@@ -43,7 +43,7 @@
       <div class="flex overflow-x-auto no-scrollbar space-x-4 pb-4">
         <div class="flex-shrink-0 flex flex-col items-center mt-4 mx-4 relative">
           <div class="avatar mb-2">
-            <div class="w-12 h-12 rounded-full ring-2 ring-primary ring-offset-2 relative">
+            <div class="w-12 h-12 rounded-xl ring-2 ring-primary ring-offset-2 relative">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User" />
             </div>
             <div
@@ -58,7 +58,7 @@
 
         <div *ngFor="let story of stories; let i = index" class="flex-shrink-0 flex flex-col items-center mt-4 mx-4">
           <div class="avatar mb-2">
-            <div class="w-12 h-12 rounded-full ring-2 ring-primary ring-offset-2">
+            <div class="w-12 h-12 rounded-xl ring-2 ring-primary ring-offset-2">
               <img src="https://i.pravatar.cc/150?img={{ i + 1 }}" alt="User {{ i + 1 }}" />
             </div>
           </div>
@@ -81,11 +81,53 @@
     </ng-container>
   </div>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end"
-    [ngStyle]="{ 'opacity': fabOpacity, 'transition': 'opacity 0.3s ease-in-out' }">
-    <ion-fab-button color="scapuyelow">
-      <ion-icon name="add-outline" class="text-2xl font-bold"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+<!-- FAB Button -->
+<ion-fab slot="fixed" vertical="bottom" horizontal="end"
+  [ngStyle]="{ 'opacity': fabOpacity, 'transition': 'opacity 0.3s ease-in-out' }">
+  <ion-fab-button color="scapuyelow" (click)="openModal()">
+    <ion-icon name="add-outline" class="text-2xl font-bold"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
+<!-- Modal Content -->
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()" [initialBreakpoint]="0.75" [breakpoints]="[0.25, 0.5, 0.75]">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Choose Option</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-grid>
+        <ion-row>
+          <!-- Media Option -->
+          <ion-col size="6" (click)="selectOption('media')">
+            <ion-icon name="image-outline" class="text-4xl"></ion-icon>
+            <p>Media</p>
+          </ion-col>
+          <!-- Camera Option -->
+          <ion-col size="6" (click)="selectOption('camera')">
+            <ion-icon name="camera-outline" class="text-4xl"></ion-icon>
+            <p>Camera</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <!-- Text Option -->
+          <ion-col size="6" (click)="selectOption('text')">
+            <ion-icon name="document-text-outline" class="text-4xl"></ion-icon>
+            <p>Text</p>
+          </ion-col>
+          <!-- Audio Option -->
+          <ion-col size="6" (click)="selectOption('audio')">
+            <ion-icon name="mic-outline" class="text-4xl"></ion-icon>
+            <p>Audio</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>
 </ion-content>
