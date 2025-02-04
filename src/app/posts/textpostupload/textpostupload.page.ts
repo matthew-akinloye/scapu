@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-textpostupload',
@@ -7,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class TextpostuploadPage implements OnInit {
+  caption = '';
+  location = '';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  openLocationSearch() {
+    this.location = 'New York, NY';
+  }
+
+  goToPreview() {
+    this.router.navigate(['/previewpost'], {
+      queryParams: { mediaType: "text", caption: this.caption, location: this.location }
+    });
+  }
 }

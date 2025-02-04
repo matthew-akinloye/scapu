@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PreviewpostPage implements OnInit {
 
   media: string | null = null;
+  mediaType: string | null = null;
   isImage = true;
   caption = '';
   location = '';
@@ -21,6 +22,7 @@ export class PreviewpostPage implements OnInit {
       this.caption = params['caption'];
       this.location = params['location'];
       this.isImage = this.media ? !this.media.endsWith('.mp4') : true;
+      this.mediaType = params['mediaType']
     });
   }
 

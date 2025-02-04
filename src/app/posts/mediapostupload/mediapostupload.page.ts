@@ -21,7 +21,6 @@ export class MediapostuploadPage implements OnInit {
     this.openGallery();
   }
 
-
   async openGallery() {
     try {
       const media = await Camera.getPhoto({
@@ -43,16 +42,13 @@ export class MediapostuploadPage implements OnInit {
     }
   }
 
-
   deleteMedia() {
     this.selectedMedia = null;
   }
 
-
   openLocationSearch() {
     this.location = 'New York, NY'; 
   }
-
 
   goToPreview() {
     this.router.navigate(['/previewpost'], {

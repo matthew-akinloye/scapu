@@ -1,10 +1,43 @@
-<ion-header>
+<ion-header [translucent]="true" mode="ios">
   <ion-toolbar>
-    <ion-title>Text Post Upload</ion-title>
+    <ion-title>New Pub</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-textarea placeholder="Enter your text here..."></ion-textarea>
-  <ion-button expand="full">Upload Text</ion-button>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+
+  <!-- Centered Content Section -->
+  <div class="flex flex-col items-center justify-center min-h-[90vh] space-y-4 space-x-4">
+
+
+    <div  class="flex justify-center w-full">
+      <!-- Post Input -->
+      <ion-textarea mode="ios" placeholder="Write your thoughts..." [(ngModel)]="caption"
+        class="w-full max-w-sm rounded-lg border p-4" [autoGrow]="true">
+      </ion-textarea>
+
+    </div>
+
+
+    <!-- Location Button -->
+    <div class="flex items-center space-x-2" >
+      <ion-button mode="ios" (click)="openLocationSearch()" color="wab">
+        <ion-icon slot="icon-only" name="location-outline"></ion-icon>
+      </ion-button>
+      <span *ngIf="location">{{ location }}</span>
+    </div>
+  </div>
+
+
 </ion-content>
+<ion-footer  mode="ios">
+  <ion-toolbar>
+    <!-- Next Button at Bottom -->
+    <div class="px-4">
+      <ion-button mode="ios" color="wab" class="w-full max-w-sm rounded-full py-3"
+        (click)="goToPreview()">Next</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

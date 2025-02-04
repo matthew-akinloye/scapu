@@ -57,7 +57,7 @@ export class Tab1Page implements OnInit {
   }
 
   onScroll() {
-    this.fabOpacity = 0.3; // Reduce FAB opacity when scrolling
+    this.fabOpacity = 0.3;
 
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
@@ -69,7 +69,7 @@ export class Tab1Page implements OnInit {
     }, 500);
   }
 
-  // Open the modal
+
   openModal() {
     this.isModalOpen = true;
     this.fabOpacity = 0; // Optionally hide the FAB when modal is open
@@ -111,27 +111,24 @@ export class Tab1Page implements OnInit {
     }
   }
 
-  // Navigate to Media Post Upload component
   async navigateToMediaPostUpload() {
-    await this.closeModal(); // Wait for modal to close
+    await this.closeModal();
     this.router.navigate(['/mediapostupload']);
   }
 
-  // Navigate to Camera Post Upload component
+
   async navigateToCameraPostUpload() {
-    await this.closeModal(); // Wait for modal to close
+    await this.closeModal();
     this.router.navigate(['/camerapostupload']);
   }
 
-  // Navigate to Text Post Upload component
   async navigateToTextPostUpload() {
-    await this.closeModal(); // Wait for modal to close
+    await this.closeModal();
     this.router.navigate(['/textpostupload']);
   }
 
-  // Navigate to Audio Post Upload component
   async navigateToAudioPostUpload() {
-    await this.closeModal(); // Wait for modal to close
+    await this.closeModal();
     this.router.navigate(['/audiopostupload']);
   }
 

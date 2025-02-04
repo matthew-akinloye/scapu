@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" mode="ios">
   <ion-toolbar>
-    <ion-title>camerapostupload</ion-title>
+    <ion-title>New Pub</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">camerapostupload</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  
+  <!-- Centered Content Section -->
+  <div class="flex flex-col items-center justify-center min-h-[90vh] space-y-4 space-x-4">
+
+    <!-- Selected Media Preview -->
+    <div *ngIf="selectedMedia" class="relative w-full max-w-sm rounded-lg overflow-hidden">
+      <!-- <img *ngIf="isImage" [src]="selectedMedia" alt="Selected Media" class="w-full rounded-lg">
+      <video *ngIf="isVideo" [src]="selectedMedia" controls class="w-full rounded-lg"></video> -->
+      <img *ngIf="isImage && !isVideo" [src]="selectedMedia" alt="Selected Media" class="w-full rounded-lg">
+      <video *ngIf="isVideo && !isImage" [src]="selectedMedia" controls class="w-full rounded-lg"></video>
+
+      <!-- Delete Button -->
+      <ion-button mode="ios" fill="clear" class="absolute top-2 right-2 bg-white rounded-full shadow-md"
+        (click)="deleteMedia()">
+        <ion-icon name="trash-outline" color="danger"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Buttons for Selecting Media -->
+    <div *ngIf="!selectedMedia" class="flex justify-center w-full">
+      <ion-button (click)="openCamera()" mode="ios" fill="clear"
+        class="flex items-center justify-center bg-transparent border-2 rounded-xl text-2xl shadow-none">
+        <ion-icon name="add" color="wab"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Caption Input -->
+    <ion-textarea mode="ios" *ngIf="selectedMedia" placeholder="Write a caption..." [(ngModel)]="caption"
+      class="w-full max-w-sm rounded-lg border p-4" [autoGrow]="true">
+    </ion-textarea>
+
+    <!-- Location Button -->
+    <div class="flex items-center space-x-2" *ngIf="selectedMedia">
+      <ion-button mode="ios" (click)="openLocationSearch()" color="wab">
+        <ion-icon slot="icon-only" name="location-outline"></ion-icon>
+      </ion-button>
+      <span *ngIf="location">{{ location }}</span>
+    </div>
+  </div>
+
+
 </ion-content>
+<ion-footer *ngIf="selectedMedia" mode="ios">
+  <ion-toolbar>
+    <!-- Next Button at Bottom -->
+    <div class="px-4">
+      <ion-button mode="ios" color="wab" class="w-full max-w-sm rounded-full py-3"
+        (click)="goToPreview()">Next</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
