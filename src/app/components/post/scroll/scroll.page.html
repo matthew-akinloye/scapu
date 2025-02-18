@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="bg-transparent">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" scrollEvents="true" (ionInfinite)="loadMoreVideos($event)">
+  <div class="video-container">
+    <div *ngFor="let video of videos" class="video-item relative">
+      <video class="w-full h-full object-cover" [src]="video.url" playsinline loop muted controls autoplay #videoPlayer
+        (click)="videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause()"></video>
+      <div class="action-buttons absolute right-4 bottom-20 flex flex-col items-center space-y-4">
+        <button (click)="likeVideo(video)" class="text-white">
+          <ion-icon name="heart" class="text-3xl"></ion-icon>
+          <span class="text-sm">{{ video.likes }}</span>
+        </button>
+        <button (click)="commentVideo(video)" class="text-white">
+          <ion-icon name="chatbubble" class="text-3xl"></ion-icon>
+          <span class="text-sm">{{ video.comments }}</span>
+        </button>
+        <button (click)="shareVideo(video)" class="text-white">
+          <ion-icon name="share-social" class="text-3xl"></ion-icon>
+          <span class="text-sm">{{ video.shares }}</span>
+        </button>
+        <button (click)="repostVideo(video)" class="text-white">
+          <ion-icon name="repeat" class="text-3xl"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadMoreVideos($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more videos...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

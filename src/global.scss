@@ -35,10 +35,17 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+@import url('https://developer.apple.com/fonts/downloads/SF-Pro.ttf');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+  font-family: 'SF Pro', sans-serif;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -143,4 +150,16 @@ ion-item {
 
 ion-icon {
   --ionicon-stroke-width: 46px;
+}
+
+.usertext{
+  color: #069494;
+}
+
+.fa-google {
+  background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }

@@ -1,0 +1,14 @@
+.custom-input {
+  --background: transparent;
+  --border-color: transparent;
+  --border-radius: 0; 
+  border-bottom: 2px solid var(--ion-color-scapuyelow); 
+}
+
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .custom-input {
+    border-bottom-color: var(--ion-color-scapuyelow); 
+  }
+}

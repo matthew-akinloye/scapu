@@ -1,0 +1,19 @@
+.video-container {
+  @apply h-full w-full bg-black;
+}
+
+.video-item {
+  @apply h-screen w-full;
+}
+
+.action-buttons button {
+  @apply flex flex-col items-center justify-center;
+}
+
+ion-content::part(scroll) {
+  @apply snap-y snap-mandatory;
+}
+
+.video-item {
+  @apply snap-start;
+}

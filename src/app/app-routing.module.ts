@@ -37,6 +37,26 @@ const routes: Routes = [
   {
     path: 'previewpost',
     loadChildren: () => import('./posts/previewpost/previewpost.module').then( m => m.PreviewpostPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
+    path: 'scroll',
+    loadChildren: () => import('./components/post/scroll/scroll.module').then( m => m.ScrollPageModule)
   }
 ];
 @NgModule({
